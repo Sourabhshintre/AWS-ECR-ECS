@@ -1,0 +1,87 @@
+{
+  "compatibilities": [
+    "EC2",
+    "FARGATE",
+    "MANAGED_INSTANCES"
+  ],
+  "containerDefinitions": [
+    {
+      "cpu": 0,
+      "environment": [],
+      "environmentFiles": [],
+      "essential": true,
+      "image": "496653567514.dkr.ecr.eu-west-2.amazonaws.com/bookmanagersdemo1",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/mytask",
+          "awslogs-create-group": "true",
+          "awslogs-region": "eu-west-2",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "mountPoints": [],
+      "name": "demo",
+      "portMappings": [
+        {
+          "appProtocol": "http",
+          "containerPort": 80,
+          "hostPort": 80,
+          "name": "demo-80-tcp",
+          "protocol": "tcp"
+        }
+      ],
+      "systemControls": [],
+      "ulimits": [],
+      "volumesFrom": []
+    }
+  ],
+  "cpu": "1024",
+  "enableFaultInjection": false,
+  "executionRoleArn": "arn:aws:iam::496653567514:role/ecsTaskExecutionRole",
+  "family": "mytask",
+  "memory": "3072",
+  "networkMode": "awsvpc",
+  "placementConstraints": [],
+  "registeredAt": "2025-10-15T10:16:25.107Z",
+  "registeredBy": "arn:aws:iam::496653567514:user/superuser",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "revision": 1,
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "status": "ACTIVE",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-2:496653567514:task-definition/mytask:1",
+  "volumes": [],
+  "tags": []
+}
